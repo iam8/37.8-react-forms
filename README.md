@@ -1,3 +1,9 @@
+# Description
+
+This project contains my code for Exercise 37.8: React Forms.
+The application contains both parts of the exercise: Color Box Maker and Todo App.
+Each has its own associated component.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
