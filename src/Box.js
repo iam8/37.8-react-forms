@@ -9,6 +9,7 @@ import React from "react";
  * - bkgColor: string representing box color
  * - width: box width in pixels (integer)
  * - height: box height in pixels (integer)
+ * - remove(id): removal function passed down by parent component
  */
 function Box({id, bkgColor, width, height, remove}) {
     const styles = {
@@ -17,7 +18,7 @@ function Box({id, bkgColor, width, height, remove}) {
         height: +height
     };
 
-    /** Remove this box. */
+    /** Remove this box from parent component. */
     const handleRemove = () => {
         remove(id);
     }
