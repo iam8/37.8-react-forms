@@ -12,8 +12,8 @@ import React from "react";
 function Box({bkgColor, width, height}) {
     const styles = {
         backgroundColor: bkgColor,
-        width: `${width}px`,
-        height: `${height}px`
+        width: +width,
+        height: +height
     };
 
     return (
