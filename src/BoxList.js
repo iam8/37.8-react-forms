@@ -1,10 +1,9 @@
 import React, {useState} from "react";
+import { v4 as uuid } from 'uuid';
 import Box from "./Box";
 import NewBoxForm from "./NewBoxForm";
 import "./BoxList.css";
 
-
-let currId = 2;
 
 /**
  * BoxList - renders a row of initial colored boxes on screen, followed by a form that can be used to add a new box with specified properties to the screen.
@@ -22,14 +21,13 @@ function BoxList({boxList=[]}) {
     /** Add new box to box list. */
     const addBox = (boxData) => {
         const newBox = {
-            id: currId,
+            id: uuid(),
             bkgColor: boxData.bkgColor,
             width: +boxData.width,
             height: +boxData.height
         }
 
         setBoxes([...boxes, newBox]);
-        currId++;
     };
 
     /** Remove given box from the box list. */
