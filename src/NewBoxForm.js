@@ -13,9 +13,9 @@ import React, {useState} from "react";
  */
 function NewBoxForm({addBox}) {
     const INITIAL_FORM = {
-        bkgColor: "black",
-        width: 100,
-        height: 100
+        bkgColor: "",
+        width: "",
+        height: ""
     };
 
     const [formData, setFormData] = useState(INITIAL_FORM);
@@ -46,23 +46,26 @@ function NewBoxForm({addBox}) {
                 <input
                     id="bkg-color"
                     name="bkgColor"
+                    placeholder="Enter a color (e.g. black)"
                     value={formData.bkgColor}
                     onChange={handleChange}
                 />
 
-                <label htmlFor="width">Width:</label>
+                <label htmlFor="width">Width (px):</label>
                 <input
                     id="width"
                     name="width"
                     type="number"
+                    placeholder="Enter a width in pixels"
                     value={formData.width}
                     onChange={handleChange}
                 />
 
-                <label htmlFor="height">height:</label>
+                <label htmlFor="height">Height (px):</label>
                 <input
                     id="height"
                     name="height"
+                    placeholder="Enter a height in pixels"
                     value={formData.height}
                     onChange={handleChange}
                 />
