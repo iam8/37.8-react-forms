@@ -1,14 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 // import Box from "./Box";
 // import NewBoxForm from "./NewBoxForm";
 import "./BoxList.css";
 
 
 /**
- * BoxList - Displays a box with adjustable properties.
+ * BoxList - Displays boxes with adjustable properties.
  *
  * Properties:
- * - boxList: a list of objects representing boxes: [{bkgColor, width, height} ...]
+ * - boxList: an initial list of objects representing boxes: [{bkgColor, width, height} ...]
  *
  * State:
  * - boxes: a list of objects representing boxes: [{bkgColor, width, height} ...]
@@ -19,13 +19,13 @@ import "./BoxList.css";
  * - height: box height in pixels (integer)
  */
 function BoxList({boxList}) {
-
+    const [boxes, setBoxes] = useState(boxList);
 
     return (
         <div className="BoxList">
             Hello, this is BoxList.
             Boxes received:
-            {boxList.map((box) => {
+            {boxes.map((box) => {
                 return <li>Color: {box.bkgColor}, width: {box.width}, height: {box.height}</li>
             })}
         </div>
