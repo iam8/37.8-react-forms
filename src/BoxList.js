@@ -23,10 +23,16 @@ function BoxList({boxList}) {
 
             {
                 boxes.map((box) => {
-                    return <Box
-                        bkgColor={box.bkgColor}
-                        width={box.width}
-                        height={box.height}/>;
+                    return (
+                        <>
+                        <Box
+                            bkgColor={box.bkgColor}
+                            width={box.width}
+                            height={box.height}
+                        />
+                        <button>X</button>
+                        </>
+                    );
                 })
             }
 
