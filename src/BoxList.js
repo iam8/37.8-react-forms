@@ -1,25 +1,33 @@
-/**
- * BoxList - Displays a box with adjustable properties.
- *
- * Properties:
- * - bkgColor: string representing box color
- * - width: box width in pixels (integer)
- * - height: box height in pixels (integer)
- */
-
 import React from "react";
 // import Box from "./Box";
 // import NewBoxForm from "./NewBoxForm";
 import "./BoxList.css";
 
 
-function BoxList({bkgColor, width, height}) {
+/**
+ * BoxList - Displays a box with adjustable properties.
+ *
+ * Properties:
+ * - boxList: a list of objects representing boxes: [{bkgColor, width, height} ...]
+ *
+ * State:
+ * - boxes: a list of objects representing boxes: [{bkgColor, width, height} ...]
+ *
+ * Props of individual boxes:
+ * - bkgColor: string representing box color
+ * - width: box width in pixels (integer)
+ * - height: box height in pixels (integer)
+ */
+function BoxList({boxList}) {
 
 
     return (
         <div className="BoxList">
             Hello, this is BoxList.
-            Properties received: {bkgColor}, {width}px, {height}px.
+            Boxes received:
+            {boxList.map((box) => {
+                return <li>Color: {box.bkgColor}, width: {box.width}, height: {box.height}</li>
+            })}
         </div>
     );
 }
