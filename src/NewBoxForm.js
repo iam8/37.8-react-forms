@@ -6,18 +6,35 @@ import React, {useState} from "react";
  * background color.
  */
 function NewBoxForm() {
+    const INITIAL_FORM = {
+        bkgColor: "",
+        width: "",
+        height: ""
+    };
+
+    const [formData, setFormData] = useState(INITIAL_FORM);
+
+    const handleChange = (evt) => {
+        const {name, value} = evt.target;
+        setFormData((data) => {
+            return {
+                ...data,
+                [name]: value
+            };
+        });
+    };
 
     return (
         <div className="NewBoxForm">
             <form>
                 <label htmlFor="bkg-color">Background color:</label>
-                <input id="bkg-color" type="text"/>
+                <input id="bkg-color" name="bkgColor" type="text"/>
 
                 <label htmlFor="width">Width:</label>
-                <input id="width" type="text"/>
+                <input id="width" name="width" type="text"/>
 
                 <label htmlFor="height">height:</label>
-                <input id="height" type="text"/>
+                <input id="height" name="height" type="text"/>
 
                 <button>Add new box!</button>
             </form>
