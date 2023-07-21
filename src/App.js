@@ -13,8 +13,8 @@ function App() {
     return (
         <div className="App">
             <BoxList boxList={[
-                {bkgColor: "salmon", width: 200, height: 200},
-                {bkgColor: "red", width: 100, height: 400},
+                {id: 0, bkgColor: "salmon", width: 200, height: 200},
+                {id: 1, bkgColor: "red", width: 100, height: 400},
             ]} />
         </div>
     );
