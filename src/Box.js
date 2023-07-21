@@ -9,17 +9,24 @@ import React from "react";
  * - width: box width in pixels (integer)
  * - height: box height in pixels (integer)
  */
-function Box({bkgColor, width, height}) {
+function Box({id, bkgColor, width, height, remove}) {
     const styles = {
         backgroundColor: bkgColor,
         width: +width,
         height: +height
     };
 
+    const handleRemove = () => {
+        remove(id);
+    }
+
     return (
+        <>
         <div className="Box" style={styles}>
 
         </div>
+        <button className="Box-remove-btn" onClick={handleRemove}>X</button>
+        </>
     )
 }
 
