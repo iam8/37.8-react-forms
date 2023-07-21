@@ -5,6 +5,7 @@ import React from "react";
  * Box - render a single box with the given properties.
  *
  * Properties:
+ * - id: a unique ID
  * - bkgColor: string representing box color
  * - width: box width in pixels (integer)
  * - height: box height in pixels (integer)
@@ -16,6 +17,7 @@ function Box({id, bkgColor, width, height, remove}) {
         height: +height
     };
 
+    /** Remove this box. */
     const handleRemove = () => {
         remove(id);
     }
