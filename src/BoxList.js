@@ -9,16 +9,25 @@ import "./BoxList.css";
  * BoxList - renders a row of initial colored boxes on screen, followed by a form that can be used to add a new box with specified properties to the screen.
  *
  * Properties:
- * - boxList: an initial list of objects representing boxes: [{id, bkgColor, width, height} ...]
+ * - boxList: an initial list of objects representing boxes: [{bkgColor, width, height} ...]
  *
  * State:
  * - boxes: a list of objects representing boxes: [{id, bkgColor, width, height} ...]
  *
  */
 function BoxList({boxList=[]}) {
-    const [boxes, setBoxes] = useState(boxList);
 
-    /** Add new box to box list. */
+    // Add UUIDs to each box in boxList before initializing state
+    const initBoxes = boxList.map((box) => (
+        {
+            ...box,
+            id: uuid()
+        }
+    ));
+
+    const [boxes, setBoxes] = useState(initBoxes);
+
+    /** Add new box to box list in state. */
     const addBox = (boxData) => {
         const newBox = {
             id: uuid(),
