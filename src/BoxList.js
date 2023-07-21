@@ -4,6 +4,8 @@ import NewBoxForm from "./NewBoxForm";
 import "./BoxList.css";
 
 
+let currId = 2;
+
 /**
  * BoxList - renders a row of initial colored boxes on screen, followed by a form that can be used to add a new box with specified properties to the screen.
  *
@@ -19,7 +21,20 @@ function BoxList({boxList=[]}) {
 
     /** Add new box to box list. */
     const addBox = (boxData) => {
-        setBoxes([...boxes, boxData]);
+        const newBox = {
+            id: currId,
+            bkgColor: boxData.bkgColor,
+            width: +boxData.width,
+            height: +boxData.height
+        }
+
+        setBoxes([...boxes, newBox]);
+        currId++;
+    };
+
+    /** Remove given box from the box list. */
+    const removeBox = (boxId) => {
+        setBoxes(boxes.filter(box => box.id !== boxId));
     };
 
     return (
@@ -27,20 +42,19 @@ function BoxList({boxList=[]}) {
             <h1>Boxes Galore</h1>
             <NewBoxForm addBox={addBox} />
 
-            {
-                boxes.map((box) => {
-                    return (
-                        <>
+            {boxes.map((box) => {
+                return (
+                    <div key={box.id}>
                         <Box
+                            id={box.id}
                             bkgColor={box.bkgColor}
                             width={box.width}
                             height={box.height}
+                            remove={removeBox}
                         />
-                        <button>X</button>
-                        </>
-                    );
-                })
-            }
+                    </div>
+                )
+            })}
         </div>
     );
 }
