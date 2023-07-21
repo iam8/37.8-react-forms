@@ -17,6 +17,13 @@ import "./BoxList.css";
 function BoxList({boxList}) {
     const [boxes, setBoxes] = useState(boxList);
 
+    const addBox = ({bkgColor, width, height}) => {
+        setBoxes([
+            ...boxes,
+            {bkgColor, width, height}
+        ]);
+    };
+
     return (
         <div className="BoxList">
             <h1>Boxes Galore</h1>
@@ -36,7 +43,7 @@ function BoxList({boxList}) {
                 })
             }
 
-            <NewBoxForm />
+            <NewBoxForm addBox={addBox} />
         </div>
     );
 }
