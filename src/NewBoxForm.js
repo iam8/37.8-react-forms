@@ -65,6 +65,7 @@ function NewBoxForm({addBox}) {
                 <input
                     id="height"
                     name="height"
+                    type="number"
                     placeholder="Enter a height in pixels"
                     value={formData.height}
                     onChange={handleChange}
