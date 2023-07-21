@@ -9,10 +9,10 @@ import "./BoxList.css";
  * BoxList - renders a row of initial colored boxes on screen, followed by a form that can be used to add a new box with specified properties to the screen.
  *
  * Properties:
- * - boxList: an initial list of objects representing boxes: [{bkgColor, width, height} ...]
+ * - boxList: an initial list of objects representing boxes: [{id, bkgColor, width, height} ...]
  *
  * State:
- * - boxes: a list of objects representing boxes: [{bkgColor, width, height} ...]
+ * - boxes: a list of objects representing boxes: [{id, bkgColor, width, height} ...]
  *
  */
 function BoxList({boxList=[]}) {
@@ -30,7 +30,7 @@ function BoxList({boxList=[]}) {
         setBoxes([...boxes, newBox]);
     };
 
-    /** Remove given box from the box list. */
+    /** Remove given box from the box list by its ID. */
     const removeBox = (boxId) => {
         setBoxes(boxes.filter(box => box.id !== boxId));
     };
