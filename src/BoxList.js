@@ -14,19 +14,18 @@ import "./BoxList.css";
  * - boxes: a list of objects representing boxes: [{bkgColor, width, height} ...]
  *
  */
-function BoxList({boxList}) {
+function BoxList({boxList=[]}) {
     const [boxes, setBoxes] = useState(boxList);
 
-    const addBox = ({bkgColor, width, height}) => {
-        setBoxes([
-            ...boxes,
-            {bkgColor, width, height}
-        ]);
+    /** Add new box to box list. */
+    const addBox = (boxData) => {
+        setBoxes([...boxes, boxData]);
     };
 
     return (
         <div className="BoxList">
             <h1>Boxes Galore</h1>
+            <NewBoxForm addBox={addBox} />
 
             {
                 boxes.map((box) => {
@@ -42,8 +41,6 @@ function BoxList({boxList}) {
                     );
                 })
             }
-
-            <NewBoxForm addBox={addBox} />
         </div>
     );
 }
