@@ -12,7 +12,7 @@ import "./App.css";
 function App() {
     return (
         <div className="App">
-            <BoxList bkgColor="salmon" width={200} height={200} />
+            <BoxList boxList={[{bkgColor: "salmon", width: 200, height: 200}]} />
         </div>
     );
 }
