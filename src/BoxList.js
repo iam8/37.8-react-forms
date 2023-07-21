@@ -20,6 +20,7 @@ function BoxList({boxList}) {
     return (
         <div className="BoxList">
             <h1>Boxes Galore</h1>
+
             {
                 boxes.map((box) => {
                     return <Box
@@ -28,6 +29,8 @@ function BoxList({boxList}) {
                         height={box.height}/>;
                 })
             }
+
+            <NewBoxForm />
         </div>
     );
 }
