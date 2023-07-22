@@ -6,14 +6,14 @@ import "./BoxList.css";
 
 
 /**
- * BoxList - renders a row of initial colored boxes on screen, followed by a form that can be used to add a new box with specified properties to the screen.
+ * BoxList - renders a row of initial colored boxes on screen and a form that can be used to add a
+ * new box with specified properties to the screen.
  *
  * Properties:
  * - boxList: an initial list of objects representing boxes: [{bkgColor, width, height} ...]
  *
  * State:
  * - boxes: a list of objects representing boxes: [{id, bkgColor, width, height} ...]
- *
  */
 function BoxList({boxList=[]}) {
 
