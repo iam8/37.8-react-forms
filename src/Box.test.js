@@ -23,5 +23,5 @@ test("Matches snapshot", () => {
         width={testBox.width}
         height={testBox.height} />);
 
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
 });
