@@ -1,3 +1,7 @@
+.Box {
+    margin: 10px;
+}
+
 .Box-box {
     border: 1px solid black;
 }
