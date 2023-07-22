@@ -9,11 +9,18 @@ const testBox = {
 }
 
 
+/** Dummy box removal function. Does nothing. */
+const removeTest = () => {
+    return;
+}
+
+
 test("Renders without crashing", () => {
     render(<Box
         bkgColor={testBox.bkgColor}
         width={testBox.width}
-        height={testBox.height} />);
+        height={testBox.height}
+        remove={removeTest} />);
 });
 
 
@@ -21,7 +28,8 @@ test("Matches snapshot", () => {
     const {asFragment} = render(<Box
         bkgColor={testBox.bkgColor}
         width={testBox.width}
-        height={testBox.height} />);
+        height={testBox.height}
+        remove={removeTest} />);
 
     expect(asFragment()).toMatchSnapshot();
 });
