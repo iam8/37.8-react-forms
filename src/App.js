@@ -5,18 +5,20 @@
  */
 
 import React from "react";
-import { v4 as uuid } from 'uuid';
 import BoxList from "./BoxList";
+import TodoList from "./TodoList";
 import "./App.css";
 
 
 function App() {
     return (
         <div className="App">
-            <BoxList boxList={[
-                {id: uuid(), bkgColor: "salmon", width: 200, height: 200},
-                {id: uuid(), bkgColor: "red", width: 100, height: 400},
-            ]} />
+            {/* <BoxList boxList={[
+                {bkgColor: "salmon", width: 200, height: 200},
+                {bkgColor: "red", width: 100, height: 400},
+            ]} /> */}
+
+            <TodoList />
         </div>
     );
 }
