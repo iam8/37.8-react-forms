@@ -1,3 +1,4 @@
-.BoxList {
-    background-color: darkblue;
+.BoxList-list {
+    display: flex;
+    flex-wrap: wrap;
 }
