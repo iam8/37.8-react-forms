@@ -49,7 +49,7 @@ function BoxList({boxList=[]}) {
             <h1 className="BoxList-heading">Boxes Galore</h1>
             <NewBoxForm addBox={addBox} />
 
-            <div className="BoxList-list">
+            <div className="BoxList-list" data-testid="BoxList-list">
                 {boxes.map((box) => {
                     return (
                         <div key={box.id}>
