@@ -1,4 +1,5 @@
 import React from "react";
+import "./Box.css";
 
 
 /**
@@ -24,12 +25,12 @@ function Box({id, bkgColor, width, height, remove}) {
     }
 
     return (
-        <>
-        <div className="Box" style={styles}>
+        <div className="Box">
+            <div className="Box-box" style={styles}>
 
+            </div>
+            <button className="Box-remove-btn" onClick={handleRemove}>X</button>
         </div>
-        <button className="Box-remove-btn" onClick={handleRemove}>X</button>
-        </>
     )
 }
 
