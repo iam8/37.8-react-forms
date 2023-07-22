@@ -11,7 +11,7 @@ import React from "react";
  */
 function Todo({id, text, remove}) {
 
-    /** Remove this box from parent component. */
+    /** Remove this TODO from parent component. */
     const handleRemove = () => {
         remove(id);
     }
