@@ -25,7 +25,7 @@ function Box({id, bkgColor, width, height, remove}) {
     }
 
     return (
-        <div className="Box">
+        <div className="Box" data-testid="Box">
             <div className="Box-box" style={styles}>
 
             </div>
