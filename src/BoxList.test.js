@@ -23,3 +23,30 @@ test("Matches snapshot with initial boxes rendered", () => {
     const {asFragment} = render(<BoxList boxList={testList}/>);
     expect(asFragment()).toMatchSnapshot();
 });
+
+
+test("Can add a new box", () => {
+    const newBox = {bkgColor: "black", width: 100, height: 100};
+    const {getByLabelText, getByText, getByTestId} = render(<BoxList />);
+
+    const boxList = getByTestId("BoxList-list");
+    expect(boxList).toBeEmptyDOMElement();
+
+    const colorInput = getByLabelText("Background color:");
+    const widthInput = getByLabelText("Width (px):");
+    const heightInput = getByLabelText("Height (px):");
+    const submitBtn = getByText("Add new box!");
+
+    // Fill out form and submit
+    fireEvent.change(colorInput, {target: {value: newBox.bkgColor}});
+    fireEvent.change(widthInput, {target: {value: newBox.width}});
+    fireEvent.change(heightInput, {target: {value: newBox.height}});
+    fireEvent.click(submitBtn);
+
+    expect(boxList).not.toBeEmptyDOMElement();
+});
+
+
+test("Can remove a box", () => {
+    const {asFragment} = render(<BoxList boxList={testList}/>);
+});
