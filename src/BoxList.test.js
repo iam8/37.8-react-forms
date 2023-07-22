@@ -27,7 +27,7 @@ test("Matches snapshot with initial boxes rendered", () => {
 
 test("Can add a new box", () => {
     const newBox = {bkgColor: "black", width: 100, height: 100};
-    const {getByLabelText, getByText, getByTestId} = render(<BoxList />);
+    const {getByLabelText, getByText, getByTestId, queryAllByTestId} = render(<BoxList />);
 
     const boxList = getByTestId("BoxList-list");
     expect(boxList).toBeEmptyDOMElement();
@@ -43,7 +43,9 @@ test("Can add a new box", () => {
     fireEvent.change(heightInput, {target: {value: newBox.height}});
     fireEvent.click(submitBtn);
 
+    const boxes = queryAllByTestId("Box");
     expect(boxList).not.toBeEmptyDOMElement();
+    expect(boxes).toHaveLength(1);
 });
 
 
