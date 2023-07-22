@@ -27,10 +27,15 @@ test("Matches snapshot with initial boxes rendered", () => {
 
 test("Can add a new box", () => {
     const newBox = {bkgColor: "black", width: 100, height: 100};
-    const {getByLabelText, getByText, getByTestId, queryAllByTestId} = render(<BoxList />);
+    const {
+        getByLabelText,
+        getByText,
+        getByTestId,
+        queryAllByTestId
+    } = render(<BoxList />);
 
-    const boxList = getByTestId("BoxList-list");
-    expect(boxList).toBeEmptyDOMElement();
+    expect(getByTestId("BoxList-list")).toBeEmptyDOMElement();
+    expect(queryAllByTestId("Box")).toHaveLength(0);
 
     const colorInput = getByLabelText("Background color:");
     const widthInput = getByLabelText("Width (px):");
@@ -43,12 +48,24 @@ test("Can add a new box", () => {
     fireEvent.change(heightInput, {target: {value: newBox.height}});
     fireEvent.click(submitBtn);
 
-    const boxes = queryAllByTestId("Box");
-    expect(boxList).not.toBeEmptyDOMElement();
-    expect(boxes).toHaveLength(1);
+    expect(getByTestId("BoxList-list")).not.toBeEmptyDOMElement();
+    expect(queryAllByTestId("Box")).toHaveLength(1);
 });
 
 
-test("Can remove a box", () => {
-    const {asFragment} = render(<BoxList boxList={testList}/>);
+test("Can remove boxes", () => {
+    const {
+        queryAllByText,
+        getByTestId,
+        queryAllByTestId
+    } = render(<BoxList boxList={testList}/>);
+
+    expect(getByTestId("BoxList-list")).not.toBeEmptyDOMElement();
+    expect(queryAllByTestId("Box")).toHaveLength(2);
+
+    fireEvent.click(queryAllByText("X")[0]);
+    fireEvent.click(queryAllByText("X")[0]);
+
+    expect(getByTestId("BoxList-list")).toBeEmptyDOMElement();
+    expect(queryAllByTestId("Box")).toHaveLength(0);
 });
