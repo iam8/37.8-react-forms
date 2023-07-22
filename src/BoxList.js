@@ -46,22 +46,24 @@ function BoxList({boxList=[]}) {
 
     return (
         <div className="BoxList">
-            <h1>Boxes Galore</h1>
+            <h1 className="BoxList-heading">Boxes Galore</h1>
             <NewBoxForm addBox={addBox} />
 
-            {boxes.map((box) => {
-                return (
-                    <div key={box.id}>
-                        <Box
-                            id={box.id}
-                            bkgColor={box.bkgColor}
-                            width={box.width}
-                            height={box.height}
-                            remove={removeBox}
-                        />
-                    </div>
-                )
-            })}
+            <div className="BoxList-list">
+                {boxes.map((box) => {
+                    return (
+                        <div key={box.id}>
+                            <Box
+                                id={box.id}
+                                bkgColor={box.bkgColor}
+                                width={box.width}
+                                height={box.height}
+                                remove={removeBox}
+                            />
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     );
 }
