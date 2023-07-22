@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import "./NewBoxForm.css";
 
 
 /**
@@ -42,36 +43,42 @@ function NewBoxForm({addBox}) {
         <div className="NewBoxForm">
             <form onSubmit={handleSubmit}>
 
-                <label htmlFor="bkg-color">Background color:</label>
-                <input
-                    id="bkg-color"
-                    name="bkgColor"
-                    placeholder="Enter a color (e.g. black)"
-                    value={formData.bkgColor}
-                    onChange={handleChange}
-                />
+                <div>
+                    <label htmlFor="bkg-color">Background color:</label>
+                    <input
+                        id="bkg-color"
+                        name="bkgColor"
+                        placeholder="Enter a color (e.g. black)"
+                        value={formData.bkgColor}
+                        onChange={handleChange}
+                    />
+                </div>
 
-                <label htmlFor="width">Width (px):</label>
-                <input
-                    id="width"
-                    name="width"
-                    type="number"
-                    placeholder="Enter a width in pixels"
-                    value={formData.width}
-                    onChange={handleChange}
-                />
+                <div>
+                    <label htmlFor="width">Width (px):</label>
+                    <input
+                        id="width"
+                        name="width"
+                        type="number"
+                        placeholder="Enter a width in pixels"
+                        value={formData.width}
+                        onChange={handleChange}
+                    />
+                </div>
 
-                <label htmlFor="height">Height (px):</label>
-                <input
-                    id="height"
-                    name="height"
-                    type="number"
-                    placeholder="Enter a height in pixels"
-                    value={formData.height}
-                    onChange={handleChange}
-                />
+                <div>
+                    <label htmlFor="height">Height (px):</label>
+                    <input
+                        id="height"
+                        name="height"
+                        type="number"
+                        placeholder="Enter a height in pixels"
+                        value={formData.height}
+                        onChange={handleChange}
+                    />
+                </div>
 
-                <button>Add new box!</button>
+                <button className="NewBoxForm-add-btn">Add new box!</button>
             </form>
         </div>
     );
