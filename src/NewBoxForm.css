@@ -1,12 +1,15 @@
-label {
+.NewBoxForm label {
     margin-right: 5px;
 }
 
-input {
+.NewBoxForm input {
     width: 300px;
 }
 
 .NewBoxForm-add-btn {
     margin-top: 5px;
     margin-bottom: 10px;
+    width: 175px;
+    background-color: lightgrey;
+    border: 2px solid grey;
 }
