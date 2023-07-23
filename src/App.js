@@ -14,6 +14,7 @@ function App() {
     return (
         <div className="App">
             <TodoList />
+            <hr/>
             <BoxList boxList={[
                 {bkgColor: "salmon", width: 200, height: 200},
                 {bkgColor: "red", width: 100, height: 400},
