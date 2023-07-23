@@ -20,7 +20,7 @@ test("Matches snapshot with no initial boxes rendered", () => {
 
 
 test("Matches snapshot with initial boxes rendered", () => {
-    const {asFragment} = render(<BoxList boxList={testList}/>);
+    const {asFragment} = render(<BoxList boxList={testList} />);
     expect(asFragment()).toMatchSnapshot();
 });
 
