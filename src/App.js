@@ -13,12 +13,11 @@ import "./App.css";
 function App() {
     return (
         <div className="App">
-            {/* <BoxList boxList={[
+            <TodoList />
+            <BoxList boxList={[
                 {bkgColor: "salmon", width: 200, height: 200},
                 {bkgColor: "red", width: 100, height: 400},
-            ]} /> */}
-
-            <TodoList />
+            ]} />
         </div>
     );
 }
