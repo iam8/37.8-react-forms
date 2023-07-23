@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { v4 as uuid } from 'uuid';
 import Todo from "./Todo";
 import NewTodoForm from "./NewTodoForm";
+import "./TodoList.css";
 
 
 /**
@@ -36,19 +37,19 @@ function TodoList() {
             <h1 className="TodoList-heading">TODO List</h1>
             <NewTodoForm addTodo={addTodo} />
 
-            <div className="TodoList-list" data-testid="TodoList-list">
+            <ul className="TodoList-list" data-testid="TodoList-list">
                 {todos.map((todo) => {
                     return (
-                        <div key={todo.id}>
+                        <li key={todo.id}>
                             <Todo
                                 id={todo.id}
                                 text={todo.text}
                                 remove={removeTodo}
                             />
-                        </div>
+                        </li>
                     )
                 })}
-            </div>
+            </ul>
         </div>
     );
 }
